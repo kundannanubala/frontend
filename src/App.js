@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MultiSearchTablets from './MultiSearchTablets';
+import Homepage from './components/Home';
+import "./index.css";
 import './App.css';
+import SubmittedDrugsDisplay from './components/SubmittedDrugsDisplay';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <Routes>
+            {/* Main route with search functionality and displaying selected drug details */}
+            <Route path="/" element={<Homepage />} />
+            <Route path='/MultiSearchTablets' element={<MultiSearchTablets />} />
+            <Route path='/SubmittedDrugsDisplay' element={<SubmittedDrugsDisplay />} />
+          </Routes>
+      </Router>
   );
 }
 
